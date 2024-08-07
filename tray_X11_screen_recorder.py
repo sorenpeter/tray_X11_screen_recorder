@@ -99,10 +99,15 @@ class ScreenRecorderTray(QSystemTrayIcon):
         self.about_dialog = AboutDialog()
 
     def set_icon(self, is_recording):
+        app_dir = os.path.dirname(os.path.realpath(__file__))
+        #print(app_dir)
+
         if is_recording:
-            self.setIcon(QIcon.fromTheme("media-playback-stoped"))
+            #self.setIcon(QIcon.fromTheme("media-playback-stoped"))
+            self.setIcon(QIcon(app_dir + "/record_on.png"))
         else:
-            self.setIcon(QIcon.fromTheme("media-record-symbolic"))
+            #self.setIcon(QIcon.fromTheme("media-record-symbolic"))
+            self.setIcon(QIcon(app_dir + "/record_off.png"))
 
     def create_menu(self):
         # Area submenu
